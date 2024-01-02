@@ -9,12 +9,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
 import java.time.Duration;
 
 public class Hooks {
 
 	public static WebDriver driver;
-
+    Robot robot = null;
 	protected WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 	@BeforeAll

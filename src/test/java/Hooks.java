@@ -15,7 +15,9 @@ import java.time.Duration;
 public class Hooks {
 
 	public static WebDriver driver;
-    Robot robot = null;
+
+	Robot robot = null;
+
 	protected WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 	@BeforeAll

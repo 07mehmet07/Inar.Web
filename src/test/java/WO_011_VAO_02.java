@@ -4,20 +4,19 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class WO_010_VAO_01 extends Hooks {
+public class WO_011_VAO_02 extends Hooks {
 
 	/**
 	 * 1-) Open the URL 2-) Click "WebOrder" button on top bar. 3-) Enter valid username
 	 * "Inar" and password "Academy". 4-) Navigate to the view all order page. 5-) Click
-	 * "Add More Data" "4" times. 6-) Click "Check All" button. 7-) Verify all orders
-	 * selected.
+	 * "Add More Data" "6" times. 6-) Click "Check All" button. 7-) Verify all orders
+	 * selected. 8-) Click "Uncheck All" button. 9-) Verify all orders are unselected.
 	 */
-
 	@Test
-	void checkAllFunctionalityInViewAllOrderPageTest() {
-
+	void verifyUncheckAllFunctionalityInViewAllOrderPage() {
 		// 2-) Click "WebOrder" button on top bar.
 		WebElement webOrderTag = driver.findElement(By.cssSelector("[href='/weborder']"));
 		webOrderTag.click();
@@ -49,6 +48,15 @@ public class WO_010_VAO_01 extends Hooks {
 		List<WebElement> verifyAllButtonChecked = driver.findElements(By.xpath("//input[@class='form-check-input']"));
 		for (WebElement each : verifyAllButtonChecked) {
 			assertTrue(each.isSelected());
+		}
+
+		WebElement uncheckAllButton = driver
+			.findElement(By.xpath("//button[@class='btn btn-primary fs-4 text-fifth']"));
+		uncheckAllButton.click();
+
+		List<WebElement> verifyAllButtonUnchecked = driver.findElements(By.xpath("//input[@class='form-check-input']"));
+		for (WebElement each : verifyAllButtonUnchecked) {
+			assertFalse(each.isSelected());
 		}
 	}
 

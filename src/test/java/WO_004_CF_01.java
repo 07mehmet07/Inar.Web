@@ -37,7 +37,6 @@ public class WO_004_CF_01 extends Hooks {
 		WebElement loginButton = driver.findElement(By.id("login-button"));
 		loginButton.click();
 
-
 		// 4-) Navigate to the order page.
 		WebElement orderPageTab = driver.findElement(By.cssSelector("[href='/weborder/order']"));
 		orderPageTab.click();

@@ -10,15 +10,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class WO_008_OP_03 extends Hooks {
 
 	/**
-	 * 1-) Open the URL. 2-) Click "WebOrder" button on top bar. 3-) Enter valid username
-	 * "Inar" and password "Academy". 4-) Navigate to the order page. 5-) Select "MyMoney"
-	 * from Product dropdown. 6-) Enter "8" as quantity number. 7-) Enter "20" as discount
-	 * percentage. 8-) Click on the "Calculate" button. 9-) Enter "Inar Academy" as Name.
-	 * 10-) Enter "1100 Congress Ave" as Street. 11-) Enter "Austin" as City. 12-) Enter
-	 * "TX" State. 13-) Enter "92@#83" as Zip Code. 14-) Select "American Express" as Card
-	 * Type. 15-) Enter "342738261027163" as Card Number. 16-) Enter "01/28" Expire
-	 * Date(mm/yy format). 17-) Click "Process"" button. 18-) Verify the invalid Zip Code
-	 * error message is displayed.
+	 * 1-) Open the URL.
+	 * 2-) Click "WebOrder" button on top bar.
+	 * 3-) Enter valid username "Inar" and password "Academy".
+	 * 4-) Navigate to the order page.
+	 * 5-) Select "MyMoney" from Product dropdown.
+	 * 6-) Enter "8" as quantity number.
+	 * 7-) Enter "20" as discount percentage.
+	 * 8-) Click on the "Calculate" button.
+	 * 9-) Enter "Inar Academy" as Name.
+	 * 10-) Enter "1100 Congress Ave" as Street.
+	 * 11-) Enter "Austin" as City.
+	 * 12-) Enter "TX" State.
+	 * 13-) Enter "92@#83" as Zip Code.
+	 * 14-) Select "American Express" as Card Type.
+	 * 15-) Enter "342738261027163" as Card Number.
+	 * 16-) Enter "01/28" Expire Date(mm/yy format).
+	 * 17-) Click "Process"" button.
+	 * 18-) Verify the invalid Zip Code error message is displayed
 	 */
 
 	public static final int NUMBER_OF_QUANTITY = 8;
@@ -97,11 +106,14 @@ public class WO_008_OP_03 extends Hooks {
 		WebElement processButton = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
 		processButton.click();
 
+		try {
+			Thread.sleep(30000);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
+
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		// driver.get("https://test.inar-academy.com/weborder/order");
-		// Alert alert = driver.switchTo().alert();
-		// alert.accept();
 
 		// 18-) Verify the invalid Zip Code error message is displayed.
 		WebElement errorMessageElement = driver.findElement(By.id("zip"));

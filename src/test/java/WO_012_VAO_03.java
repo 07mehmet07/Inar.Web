@@ -65,6 +65,8 @@ public class WO_012_VAO_03 extends Hooks {
 		for (WebElement allOrder : allOrders) {
 			linksOfRemainingOrders.add(allOrder.findElement(By.cssSelector("td > a")).getAttribute("href"));
 		}
+		System.out.println(linksOfDeletedOrders);
+		System.out.println(linksOfRemainingOrders);
 
 		for (String s : linksOfDeletedOrders) {
 			assertFalse(linksOfRemainingOrders.contains(s));
